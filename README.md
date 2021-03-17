@@ -7,7 +7,7 @@ Cara Install Script Ini
 1. buka termux
 2. apt-get install bash
 3. apt-get install git
-3. git clone https://github.com/dappauhuy/dapbot-cuy
+3. git clone https://github.com/Zaan322/ngetestjavascript
 4. cd dapbot-cuy
 5. bash install.sh
 6. node index.js
@@ -37,7 +37,7 @@ How To Install This Script
 1. open termux
 2. apt-get install bash
 3. apt-get install git
-3. git clone https://github.com/dappauhuy/dapbot-cuy
+3. git clone https://github.com/Zaan322/ngetestjavascript
 4. cd dapbot-cuy
 5. bash install.sh
 6. node index.js

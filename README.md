@@ -118,6 +118,7 @@ Cara Install Script Ini
 Scan Kode Qr Di WhatsApp Web
 Selesai:)
 Selamat Bermain Bot:)
+//ahji
 
 Jika error silahkan download node_modules terlebih dahulu link ada dibawah
 

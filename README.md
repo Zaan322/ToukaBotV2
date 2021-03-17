@@ -1,4 +1,4 @@
-![logo](https://github.com/Zaan322/ngetestjavascript/blob/main/logo.jpg)
+![logo](https://github.com/Zaan322/https://github.com/Zaan322/ngetestjavascript/blob/main/logo.jpg)
 ------------------------------------
 Versi Indonesia
 
@@ -8,7 +8,7 @@ Cara Install Script Ini
 2. apt-get install bash
 3. apt-get install git
 3. git clone https://github.com/Zaan322/ngetestjavascript
-4. cd dapbot-cuy
+4. cd ngetestjavascript
 5. bash install.sh
 6. node index.js
 
@@ -23,7 +23,7 @@ Cara pasang node_modules
 1. Extract file node_modules
 2. Buka termux
 3. termux-setup-storage
-4. cd dapbot-cuy
+4.cd ngetestjavascript
 5. cp -r /sdcard/download/node_modules $HOME
 6. node index.js
 
@@ -38,7 +38,7 @@ How To Install This Script
 2. apt-get install bash
 3. apt-get install git
 3. git clone https://github.com/Zaan322/ngetestjavascript
-4. cd dapbot-cuy
+4. cd ngetestjavascript
 5. bash install.sh
 6. node index.js
 

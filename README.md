@@ -8,8 +8,8 @@ Cara Install Script Ini
 1. buka termux
 2. apt-get install bash
 3. apt-get install git
-3. git clone https://github.com/Zaan322/ngetestjavascript
-4. cd ngetestjavascript
+3. git clone https://github.com/Zaan322/ToukaBotV2
+4. cd ToukaBotV2
 5. bash install.sh
 6. node index.js
 
@@ -24,7 +24,7 @@ Cara pasang node_modules
 1. Extract file node_modules
 2. Buka termux
 3. termux-setup-storage
-4.cd ngetestjavascript
+4.cd ToukaBotV2
 5. cp -r /sdcard/download/node_modules $HOME
 6. node index.js
 
@@ -38,8 +38,8 @@ How To Install This Script
 1. open termux
 2. apt-get install bash
 3. apt-get install git
-3. git clone https://github.com/Zaan322/ngetestjavascript
-4. cd ngetestjavascript
+3. git clone https://github.com/Zaan322/ToukaBotV2
+4. cd ToukaBotV2
 5. bash install.sh
 6. node index.js
 
@@ -54,7 +54,7 @@ How to install node_modules
 1. Extract the node_modules file
 2. Open termux
 3. termux-setup-storage
-4. cd ngetestjavascript
+4. cd ToukaBotV2
 5. cp -r / sdcard / download / node_modules $ HOME
 6. node index.js
 

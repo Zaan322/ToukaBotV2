@@ -80,7 +80,7 @@ Link Node_Modules : https://www.mediafire.com/download/0d4clcwovbwhpjk
 - Javascript
 
 :star: Here are some projects that I'm working on:
-- [Touka Repository](https://github.com/Zaan322/s)
+- [Touka Repository](https://github.com/Zaan322/ToukaBotV2)
 - [wa me](https://wa.me/6282291992581)
 - [BOT TERMUX](https://github.com/Zanganss)
 - [Apikey Free](https://toukabot-api.herokuapp.com)

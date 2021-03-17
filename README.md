@@ -1,4 +1,4 @@
-![logo](https://github.com/Zaan322/ngetestjavascript/ZanGanz/blob/main/logo.jpg)
+![logo](https://github.com/Zaan322/ngetestjavascript/blob/main/logo.jpg)
 ------------------------------------
 Versi Indonesia
 

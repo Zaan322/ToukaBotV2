@@ -1,9 +1,9 @@
 /*Bodoamat
-Credit -ZanGanz
+Credit -DappaGay
 Jangan Hapus Credit Babi
 
 TQTQ
-Dappa
+DappaGay
 AlpinGay
 HansGay
 YogiGay
@@ -58,7 +58,7 @@ const { removeBackgroundFromImageFile } = require('remove.bg')
 const { ind } = require('./dappa')
 
 //apikey
-const apivhtear = 'Vhtearlu' // punya gw di ban suuuu gara gara gw sebarin itu jg demi lu pada
+const apivhtear = 'Vthearku' // punya gw di ban suuuu gara gara gw sebarin itu jg demi lu pada
 const ZeksApi = 'apivinz'
 const TobzKey = 'BotWeA'
 const LolHuman = 'RamlanID'
@@ -952,6 +952,21 @@ if (isLimit(sender)) return reply(ind.limitend(pusname))
 					dappa.sendMessage(from, buffer, image, {quoted: mek, caption: '*MEME🗿*'})
 					await limitAdd(sender)
 					break 
+                    case 'kalkulator':
+                //Zan
+                 if (!isRegistered) return reply(ind.noregis())
+        if (isBanned) return reply(ind.baned())
+            if (isLimit(sender)) return reply(ind.limitend(pusname))
+                if (args.length < 1) return reply(`[❗] Kirim perintah *${prefix}kalkulator [ Angka ]*\nContoh : ${prefix}kalkulator 12*12\n*NOTE* :\n• Untuk Perkalian Menggunakan *\n• Untuk Pertambahan Menggunakan +\n• Untuk Pengurangan Menggunakan -\n• Untuk Pembagian Menggunakan /`)
+                const Math_js = require('mathjs')
+                mtk = body.slice(12)
+                if (typeof Math_js.evaluate(mtk) !== "number") {
+                    reply(`"${mtk}", Kesalahan!\n[❗] Kirim perintah *${prefix}kalkulator [ Angka ]*\nContoh : ${prefix}kalkulator 12*12\n*NOTE* :\n• Untuk Perkalian Menggunakan *\n• Untuk Pertambahan Menggunakan +\n• Untuk Pengurangan Menggunakan -\n• Untuk Pembagian Menggunakan /`)
+                } else {
+                    reply(`*「 MATH 」*\n\n*Kalkulator*\n${mtk} = ${Math_js.evaluate(mtk)}`)
+                }
+                await limitAdd(sender)
+                break
 			case 'galaxstyle':
                  if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -971,6 +986,31 @@ if (isLimit(sender)) return reply(ind.limitend(pusname))
 				attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${body.slice(6)}`)
 				dappa.sendMessage(from, attp2, sticker, {quoted: mek})
 				break
+          case 'github': 
+                    tels = body.slice(8) 
+                  if (!isRegistered) return reply(ind.noregis())
+                if (isBanned) return reply(ind.baned())
+                 if (isLimit(sender)) return reply(ind.limitend(pusname))
+                    anu = await fetchJson(`https://api.shizukaa.xyz/api/stalkgithub?apikey=client633&user=${tels}`, {method: 'get'})
+                    buffer7 = await getBuffer(anu.avatar_url)
+                    if (anu.error) return reply(anu.error)
+                    capt = `*HASIL*\n\n*id* : ${anu.id}\n*node_id* : ${anu.node_id}\n*gravatar_id* : ${anu.gravatar_id}\n*html_url* : ${anu.html_url}\n*type* : ${anu.type}\n*site_admin* : ${anu.site_admin}\n*name* : ${anu.name}\n*company* : ${anu.company}\n*blog* : ${anu.blog}\n*location* : ${anu.location}\n*email* : ${anu.email}\n*bio* : ${anu.bio}\n*twitter_username* : ${anu.twitter_username}\n*public_repos* : ${anu.public_repos}\n*public_gists* : ${anu.public_gists}\n*followers* : ${anu.followers}\n*following* : ${anu.following}\n*created_at* : ${anu.created_at}\n*updated_at* : ${anu.updated_at}`
+                    dappa.sendMessage(from, buffer7, image, {quoted: mek, caption: capt})
+                    await limitAdd(sender)
+                    break
+                    case 'foxnews': 
+                 if (!isRegistered) return reply( ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                 if (isBanned) return reply(ind.baned())
+                    dappa.updatePresence(from, Presence.composing) 
+                    data = await fetchJson(`https://api.zeks.xyz/api/foxnews?apikey=apivinz`, {method: 'get'})
+                    teks = '=================\n'
+                    for (let i of data.result) {
+                        teks += `*Judul* : ${i.title}\n*Url* : ${i.url}\n*Country* : ${i.country}\n*Content* : ${i.content}\n*Time* : ${i.time}\n=================\n`
+                    }
+                    reply(teks.trim())
+                    await limitAdd(sender)
+                    break
 			case 'thunder':
                  if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -2773,6 +2813,15 @@ break
 					dappa.sendMessage(from, buffer, image, {quoted: mek, caption: '>_<'})
 					await limitAdd(sender)
 					break
+                    case 'hurufterbalik': 
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                    // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+                    gatauda = body.slice(14)
+                    anu = await fetchJson(`https://videfikri.com/api/hurufterbalik/?query=${gatauda}`, {method: 'get'})
+                    reply(anu.result.kata)
+                    await limitAdd(sender)
+                    break
 				case 'loli':
 				if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -3085,7 +3134,6 @@ break
 			       break 
                     case 'kickall':
                     if (!isOwner) return reply(ind.ownerb())
-			if (!isGroupAdmins) return reply(ind.admin())
 			        members_id = []
 					teks = (args.length > 1) ? body.slice(8).trim() : ''
 					teks += '\n\n'
@@ -3104,6 +3152,33 @@ break
 					reply(`reply berhasil di ubah menjadi : ${cr}`)
 					await limitAdd(sender)
 					break 
+                      case 'tribunews':
+                    // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                if (isBanned) return reply(ind.baned())
+                    dappa.updatePresence(from, Presence.composing) 
+                    data = await fetchJson(`https://api.zeks.xyz/api/tribunews?apikey=apivinz`, {method: 'get'})
+                    teks = '=================\n'
+                    for (let i of data.result) {
+                        teks += `*Judul* : ${i.title}\n*Time* : ${i.time}\n*Link* : ${i.url}\n*Keterangan* : ${i.ket}\n=================\n`
+                    }
+                    reply(teks.trim())
+                    await limitAdd(sender)
+                    break
+                    case 'liputan6': 
+                 if (!isRegistered) return reply( ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                 if (isBanned) return reply(ind.baned())
+                    dappa.updatePresence(from, Presence.composing) 
+                    data = await fetchJson(`https://api.zeks.xyz/api/liputan6?apikey=apivinz`, {method: 'get'})
+                    teks = '=================\n'
+                    for (let i of data.result) {
+                        teks += `*Judul* : ${i.title}\n*Url* : ${i.url}\n*Keterangan* : ${i.ket}\n*Category* : ${i.category}\n*Time* : ${i.time}\n=================\n`
+                    }
+                    reply(teks.trim())
+                    await limitAdd(sender)
+                    break
 					case 'soundquran':
 					if (isBanned) return reply(ind.baned())
 					if (!isRegistered) return reply(ind.noregis())
@@ -3140,8 +3215,8 @@ break
                 const serialUser = createSerial(20)
                 if(isNaN(umurUser)) return await reply('*Umur harus berupa angka!*')       
                 if (namaUser.length >= 30) return reply(`*why is your name so long it's a name or a train*`)
-                if (umurUser > 20) return reply(`*UMUR KAMU TERLALU TUA*`)
-                if (umurUser < 10) return reply(`*UMUR KAMU TERLALU MUDA*`)
+                if (umurUser > 40) return reply(`*UMUR KAMU TERLALU TUA*`)
+                if (umurUser < 5) return reply(`*UMUR KAMU TERLALU MUDA*`)
 		try {
 		ppimg = await dappa.getProfilePicture(`${sender.split('@')[0]}@c.us`)
 		} catch {
@@ -3268,7 +3343,31 @@ break
 					nulis = await getBuffer(`https://api.zeks.xyz/api/magernulis?nama=${nama}&kelas=${kelas}&text=${isi}&tinta=4`, {method: 'get'})
 					dappa.sendMessage(from, nulis, image, {quoted: mek})
 					await limitAdd(sender) 
-					break  
+					break
+                        case 'ceknamaff': 
+                 if (!isRegistered) return reply( ind.noregis())
+                if (isLimit(sender)) return reply(ind.limitend(pusname))
+                    gatauda = body.slice(11)
+                    anu = await fetchJson(`http://lolhuman.herokuapp.com/api/freefire/${gatauda}?apikey=WEMPYGANSS`)
+                    reply(anu.result)
+                    await limitAdd(sender)
+                    break
+        case 'ceknamaml': 
+                 if (!isRegistered) return reply( ind.noregis())
+                if (isLimit(sender)) return reply(ind.limitend(pusname))
+                    gatauda = body.slice(11)
+                    anu = await fetchJson(`http://lolhuman.herokuapp.com/api/mobilelegend/${gatauda}?apikey=WEMPYGANSS`)
+                    reply(anu.result)
+                    await limitAdd(sender)
+                    break
+        case 'namaninja': 
+                 if (!isRegistered) return reply( ind.noregis())
+                if (isLimit(sender)) return reply(ind.limitend(pusname))
+                    gatauda = body.slice(11)
+                    anu = await fetchJson(`http://lolhuman.herokuapp.com/api/ninja?apikey=RamlanID &nama=${gatauda}`)
+                    reply(anu.result)
+                    await limitAdd(sender)
+                    break  
 				case 'quran':
 			if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -3483,9 +3582,9 @@ break
 ╔═════════════════❍
 ║⸨*ʙᴇʙᴇʀᴀᴘᴀ ꜰɪᴛᴜʀ ᴍᴀꜱɪ ᴅᴀʟᴀᴍ ᴛᴀʜᴀᴘ ᴘᴇᴇʙᴀɪᴋᴀɴ!!*⸩
 ║▬▭▬▭▬▭▬▭▬▭
-║⧐ ⸨ *ρяєfιχ ѕααт ιиι ${prefix}* ⸩
-║⧐ ⸨ *кєтιк ${prefix}rules* ⸩
-║⧐ ⸨ *кєтιк ${prefix}info* ⸩
+║⧐ ⸨ *prefix saat ini ${prefix}* ⸩
+║⧐ ⸨ *rules ${prefix}rules* ⸩
+║⧐ ⸨ *info bot ${prefix}info* ⸩
 ║▬▭▬▭▬▭▬▭▬▭
 ╠═════════════════❍
 ║┣❥ ingin sewa bot? *${prefix}sewabot*
@@ -3730,6 +3829,7 @@ break
 ║┣❥ *${prefix}listsurah*
 ║┣━━⊱  ❰ *MEDIA MENU* ❱  ⊰━━━❤︎
 ║┣❥ *${prefix}beritahoax*
+║┣❥ *${prefix}aesthetic*
 ║┣❥ *${prefix}brainly*
 ║┣❥ *${prefix}pinterest*
 ║┣❥ *${prefix}randomhusbu*
@@ -3747,6 +3847,7 @@ break
 ║┣❥ *${prefix}map*
 ║┣❥ *${prefix}stalkig*
 ║┣❥ *${prefix}afk*
+║┣❥ *${prefix}github*
 ║┣❥ *${prefix}unafk*
 ║┣❥ *${prefix}asupan*
 ║┣━━⊱  ❰ *LIMIT MENU* ❱  ⊰━━━❤︎
@@ -3756,6 +3857,25 @@ break
 ║┣━━⊱  ❰ *PLASTIQ MENU* ❱  ⊰━━━❤︎
 ║┣❥ *${prefix}exo*
 ║┣❥ *${prefix}bts*
+║┣━━⊱  ❰ *TOOLS MENU* ❱  ⊰━━━❤︎
+║┣❥ *${prefix}kalkulator*
+║┣❥ *${prefix}searchfilm*
+║┣❥ *${prefix}film2*
+║┣❥ *${prefix}film*
+║┣❥ *${prefix}hurufterbalik*
+║┣❥ *${prefix}apkpure*
+║┣❥ *${prefix}ceknamaff* 
+║┣❥ *${prefix}ceknamaml*
+║┣❥ *${prefix}namaninja*    
+║┣━━⊱  ❰ *INFO MENU* ❱  ⊰━━━❤︎
+║┣❥ *${prefix}tribunews*
+║┣❥ *${prefix}liputan6*
+║┣❥ *${prefix}infogempa*
+║┣❥ *${prefix}foxnews*
+║┣❥ *${prefix}infonomor*
+║┣❥ *${prefix}infofilm* 
+║┣❥ *${prefix}infofilm2*                        
+║┣❥ *${prefix}wiki*
 ║┣━━⊱  ❰ *NSFW MENU* ❱  ⊰━━━❤︎
 ║┣❥ *${prefix}pokemon*
 ║┣❥ *${prefix}anjing*
@@ -3801,6 +3921,7 @@ break
 ║┣❥ *${prefix}antilinkgrup* [1/0]
 ║┣❥ *${prefix}clearall*
 ║┣❥ *${prefix}ban*
+║┣❥ *${prefix}join*
 ║┣❥ *${prefix}unban*
 ║┣❥ *${prefix}block*
 ║┣❥ *${prefix}unblock*
@@ -3811,6 +3932,7 @@ break
 ║┣❥ *${prefix}listblock*
 ║┣❥ *${prefix}leave*
 ║┣❥ *${prefix}event* [1/0]
+║┣❥ *${prefix}kalkulator*
 ║┣❥ *${prefix}clone*
 ║┣❥ *${prefix}setbotpp*
 ║┣━━⊱ ❰ *TQTO* ❱ ⊰━━❤︎
@@ -3837,7 +3959,32 @@ break
 					islam = await getBuffer(`https://i.ibb.co/dPnjvD3/IMG-20210127-WA0018.jpg`)
 					dappa.sendMessage(from, islam, image, { quoted: mek, caption: '*Quotes Islami*\n\n'+ isl })
 					await limitAdd(sender)
-					break	
+					break
+                    case 'apkpure':
+                // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+                if (isLimit(sender)) return reply(ind.limitend(pusname))
+                if (isBanned) return reply(ind.baned())
+                data = await fetchJson(`https://api.zeks.xyz/api/apkpure?q=${body.slice(9)}&apikey=apivinz`, {method: 'get'})
+                teks = '=================\n'
+                for (let i of data.result) {
+                    teks += `*Nama APK* : ${i.title}\n*Link* : ${i.url}\n*Rating* : ${i.rating}\n=================\n`
+                    }
+                reply(teks.trim())
+                await limitAdd(sender)
+                break	
+                case 'jadwalbola':          
+                 if (!isRegistered) return reply( ind.noregis())
+                if (isLimit(sender)) return reply(ind.limitend(pusname))
+               if (isBanned) return reply(ind.baned())
+                data = await fetchJson(`https://api.vhtear.com/jadwalbola&apikey=Vthearku`, {method: 'get'})
+                teks = '=================\n'
+                for (let i of data.result.data) {
+                    teks += `► *Kick Off* : ${i.kickoff}\n► *Pertandingan* : ${i.pertandingan}\n► *Stasiuntv* : ${i.stasiuntv}\n\n=================\n\n`
+                    }
+                reply(teks.trim())
+                await limitAdd(sender)
+                break
 		case 'quotesnasehat':
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -3847,7 +3994,30 @@ break
 					nase = await getBuffer(`https://i.ibb.co/bspYPtC/IMG-20210125-WA0018.jpg`)
 					dappa.sendMessage(from, nase, image, { quoted: mek, caption: '*Quotes Nasehat*\n\n'+ nsh })
 					await limitAdd(sender)
-					break	
+					break
+                    case 'infofilm': 
+                    // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                    if (isBanned) return reply(ind.baned())
+                    ige = body.slice(10)
+                    anu = await fetchJson(`https://tobz-api.herokuapp.com/api/film2?q=${ige}&apikey=BotWeA`)
+                    buffer7 = await getBuffer(anu.result.thumbnail)
+                    capt = `➸ Judul : ${anu.result.judul}\n*➸ Bahasa :* ${anu.result.bahasa}\n*➸ Negara :* ${anu.result.negara}\n*➸ Aktor :* ${anu.result.aktor}\n*➸ Boxoffice :* ${anu.result.boxoffice}\n*➸ Dirilis :* ${anu.result.dirilis}\n*➸ Durasi :* ${anu.result.durasi}\n*➸ Katagori :* ${anu.result.kategori}\n*➸ Metascore :* ${anu.result.metascore}\n*➸ Vote :* ${anu.result.voting_imdb}\n*➸ Negara :* ${anu.result.negara}\n*➸ Sinopsis :* ${anu.result.sinopsis}\n*➸ Penghargaan :* ${anu.result.penghargaan}`
+                    dappa.sendMessage(from, buffer7, image, {quoted: mek, caption: capt})
+                    await limitAdd(sender)
+                    break
+        case 'infofilm2': 
+                 if (!isRegistered) return reply( ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                    if (isBanned) return reply(ind.baned())
+                    ige = body.slice(10)
+                    anu = await fetchJson(`http://lolhuman.herokuapp.com/api/lk21?apikey=RamlanID&query=${ige}`)
+                    buffer7 = await getBuffer(anu.result.thumbnail)
+                    capt = `➸ Nama Film : ${anu.result.title}\n*➸ Link :* ${anu.result.link}\n*➸ Genre :* ${anu.result.genre}\n*➸ Views :* ${anu.result.views}\n*➸ Durasi :* ${anu.result.duration}\n*➸ Dirilis :* ${anu.result.tahun}\n*➸ Rating :* ${anu.result.rating}\n*➸ Description :* ${anu.result.desc}\n*➸ Aktor :* ${anu.result.actors}\n*➸ Location :* ${anu.result.location}\n*➸ Date Release :* ${anu.result.date_release}\n*➸ Language :* ${anu.result.language}\n*➸ Link Download :* ${anu.result.link_dl}`
+                    dappa.sendMessage(from, buffer7, image, {quoted: mek, caption: capt})
+                    await limitAdd(sender)
+                    break	
 		case 'quotescinta':
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -3885,6 +4055,42 @@ break
                         await reply(`Error!\n${err}`)
                     })
 					break
+                    case 'film':    
+                 if (!isRegistered) return reply( ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                if (isBanned) return reply(ind.baned())
+                    dappa.updatePresence(from, Presence.composing) 
+                    data = await fetchJson(`https://api.zeks.xyz/api/film/2?q=${body.slice(6)}&apikey=apivinz`, {method: 'get'})
+                    teks = '=================\n'
+                    for (let i of data.result) {
+                        teks += `*Title:* : ${i.title}\n*Url* : ${i.url}\n=================\n`
+                    }
+                    reply(teks.trim())
+                    await limitAdd(sender)
+                    break
+                case 'film2':   
+                 if (!isRegistered) return reply( ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                if (isBanned) return reply(ind.baned())
+                    dappa.updatePresence(from, Presence.composing) 
+                    data = await fetchJson(`https://api.zeks.xyz/api/film/2?q=${body.slice(6)}&apikey=apivinz`, {method: 'get'})
+                    teks = '=================\n'
+                    for (let i of data.result) {
+                        teks += `*Title:* : ${i.title}\n*Url* : ${i.url}\n=================\n`
+                    }
+                    reply(teks.trim())
+                    await limitAdd(sender)
+                    break
+                    case 'searchfilm':
+               
+                pshh = `${body.slice(12)}`
+                  anu = await fetchJson(`https://api.zeks.xyz/api/film/2?q=${pshh}&apikey=apivinz`, {method: 'get'})
+                  puree = '======================\n'
+                  for (let plyll of anu.result){
+                  puree += `• *Judul:* ${plyll.title}\n• *Link:* ${plyll.url}\n=====================\n`
+                  }
+                  reply(puree.trim())
+                  break
 				case 'leaderboard':
 				case 'lb':
 				if (!isRegistered) return reply(ind.noregis())
@@ -3946,6 +4152,36 @@ break
 					dappa.sendMessage(from, options, text)
 					await limitAdd(sender)
 					break
+                    case 'wiki':
+                    // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                if (args.length < 1) return reply('teks nya mana om?')
+                reply(mess.wait)
+                wiki = `${body.slice(6)}`
+                anu = await fetchJson(`https://api.shizukaa.xyz/api/wiki?apikey=client633&q=${wiki}`, {method: 'get'})
+                if (anu.error) return reply(anu.error)
+                wikii = `${anu.result}`
+                dappa.sendMessage(from, wikii, text, {quoted: mek })
+                await limitAdd(sender) 
+                break
+                case 'join':
+            if (args.length === 1) return dappa.reply(from, 'Hanya Owner yang bisa memasukan Bot ke dalam Grup!', id)
+           if (!isOwner) return reply(ind.ownerb())
+            const link = body.slice(6)
+            const tGr = await dappa.getAllGroups()
+            const minMem = 5
+            const isLink = link.match(/(https:\/\/chat.whatsapp.com)/gi)
+            const check = await dappa.inviteInfo(link)
+            if (!isLink) return dappa.reply(from, 'Ini link? 👊🤬', id)
+            if (tGr.length > 256) return dappa.reply(from, 'Maaf jumlah group sudah maksimal!', id)
+            if (check.size < minMem) return dappa.reply(from, 'Member group tidak melebihi 5, bot tidak bisa masuk', id)
+            if (check.status === 200) {
+                await dappa.joinGroupViaLink(link).then(() => dappa.reply(from, 'Bot akan segera masuk!'))
+            } else {
+                dappa.reply(from, 'Link group tidak valid!', id)
+            }
+            break
 					case 'setmemberlimit':
 					if (args.length < 1) return
 					if (!isOwner) return reply(ind.ownerb())
@@ -4016,7 +4252,18 @@ break
 					dappa.sendMessage(from, truteh, image, { caption: '*Truth*\n\n'+ ttrth, quoted: mek })
 					await limitAdd(sender)
 					break
-				case 'dare':
+                case 'aesthetic':
+                gatauda = body.slice(9)
+                if (!isRegistered) return reply(ind.noregis())
+         if (isBanned) return reply(ind.baned())
+                if (isLimit(sender)) return reply(ind.limitend(pusname))
+                reply(ind.wait())
+                anu = await fetchJson(`https://api.zeks.xyz/api/estetikpic?apikey=apivinz`, {method: 'get'})
+                buffer = await getBuffer(anu.result.result)
+                dappa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih aestheticnya kak...'})
+                await limitAdd(sender)
+                break
+			case 'dare':
 				if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -4529,7 +4776,7 @@ break
                   dappa.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: mek})
                   dappa.sendMessage(from, 'Tuh kontak ZanGanz <•_•> ,Jangan Lupa Save Ya (*>*)',MessageType.text, { quoted: mek} )
 		const DAPPAGANTENG = fs.readFileSync('./dapganz/DAPPAGANTENG');
-                dappa.sendMessage(from, DAPPAGANTENG, MessageType.image, {quoted: mek, caption: '*INI OWNER GW DAPPA GANTENG KAN😎*'})
+                dappa.sendMessage(from, DAPPAGANTENG, MessageType.image, {quoted: mek, caption: '*INI OWNER GW ZAN GANTENG KAN😎*'})
                  break
 		break    
            	case 'setname':
@@ -4800,7 +5047,7 @@ break
                   }
                   
 		if (budy.includes(`bot`)) {
-                  reply(`Iya ToukaBotV2~ disini ketik ${prefix}help ya kak`)
+                  reply(`Iya ToukaBotV3 disini ketik ${prefix}help ya kak`)
                   }
                   
 		if (budy.includes(`Bot`)) {

@@ -58,7 +58,7 @@ const { removeBackgroundFromImageFile } = require('remove.bg')
 const { ind } = require('./dappa')
 
 //apikey
-const apivhtear = 'Vhtearku' // punya gw di ban suuuu gara gara gw sebarin itu jg demi lu pada
+const apivhtear = 'Vhtearlu' // punya gw di ban suuuu gara gara gw sebarin itu jg demi lu pada
 const ZeksApi = 'apivinz'
 const TobzKey = 'BotWeA'
 const LolHuman = 'RamlanID'

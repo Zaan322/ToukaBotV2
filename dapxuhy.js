@@ -53,6 +53,7 @@ const tiktod = require('tiktok-scraper')
 const brainly = require('brainly-scraper')
 const ffmpeg = require('fluent-ffmpeg')
 const imgbb = require('imgbb-uploader')
+const Math_js = require('mathjs')
 const cd = 4.32e+7
 const { removeBackgroundFromImageFile } = require('remove.bg')
 const { ind } = require('./dappa')
@@ -641,6 +642,44 @@ dappa.on('group-participants-update', async (anu) => {
 					nye = await getBuffer(ku)
 					dappa.sendMessage(from, nye, image, { caption: 'OHAYO ONII CHAN!!', quoted: mek })
 					break
+                       case 'soundplaydate':
+                 if (!isRegistered) return reply( ind.noregis())
+                if (isLimit(sender)) return reply(ind.limitend(pusname))
+                
+                let XYTODmy = fs.readFileSync('./mp3/Play-Date-Melanie-Martinez-Cover-by-邢凯悦XKY.mp3')
+                dappa.sendMessage(from, XYTODmy, MessageType.audio, { quoted: mek, ptt: true })
+                await limitAdd(sender)
+                break
+                case 'giftlimit': 
+                // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+                 if (!isOwner) return reply(ind.ownerb())
+                const nomerr = args[0].replace('@','')
+                        const jmla = args[1]
+                        if (jmla <= 1) return reply(`minimal gift limit adalah 1`)
+                        if (isNaN(jmla)) return reply(`limit harus berupa angka`)
+                        if (!nomerr) return reply(`maaf format salah\nmasukan parameter yang benar\ncontoh : ${prefix}giftlimit @62895336253039 20`)
+                        const cysz = nomerr + '@s.whatsapp.net'
+                        var found = false
+                                    Object.keys(_limit).forEach((i) => {
+                                        if(_limit[i].id === cysz){
+                                            found = i
+                                        }
+                                })
+                            if (found !== false) {
+                                _limit[found].limit -= jmla
+                                const updated = _limit[found]
+                                const result = `Gift kuota limit sukses dengan NS: ${createSerial(20)} pada ${moment().format('DD/MM/YY HH:mm:ss')}
+                            *「 GIFT KUOTA LIMIT 」*
+                            • User : @${updated.id.replace('@s.whatsapp.net','')}
+                            • Limit: ${limitawal-updated.limit}`
+                                console.log(_limit[found])
+                                fs.writeFileSync('./database/pengguna/limit.json',JSON.stringify(_limit));
+                                reply(result)
+                            } else {
+                                reply(`Maaf, nomor ${nomerr} tidak terdaftar di database!`)
+                            }
+                        break
 			case 'senku':
 					if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -3722,6 +3761,7 @@ break
 ║┣❥ *${prefix}mining*
 ║┣❥ *${prefix}playstore*
 ║┣❥ *${prefix}bisakah*
+║┣❥ *${prefix}slot*
 ║┣❥ *${prefix}kapankah*
 ║┣❥ *${prefix}apakah*
 ║┣❥ *${prefix}seberapagay*
@@ -3748,6 +3788,7 @@ break
 ║┣❥ *${prefix}caklontong*
 ║┣❥ *${prefix}family100*
 ║┣❥ *${prefix}tebakgambar*
+║┣❥ *${prefix}ceritahorror*
 ║┣❥ *${prefix}kbbi*
 ║┣❥ *${prefix}dadu*
 ║┣❥ *${prefix}artinama*
@@ -3840,6 +3881,8 @@ break
 ║┣❥ *${prefix}randomprogramer*
 ║┣❥ *${prefix}meme*
 ║┣❥ *${prefix}memeindo*
+║┣❥ *${prefix}kelinci*
+║┣❥ *${prefix}hamster*
 ║┣❥ *${prefix}tts*
 ║┣❥ *${prefix}play*
 ║┣❥ *${prefix}lirik*
@@ -3866,7 +3909,8 @@ break
 ║┣❥ *${prefix}apkpure*
 ║┣❥ *${prefix}ceknamaff* 
 ║┣❥ *${prefix}ceknamaml*
-║┣❥ *${prefix}namaninja*    
+║┣❥ *${prefix}namaninja*
+║┣❥ *${prefix}ccgenerator*    
 ║┣━━⊱  ❰ *INFO MENU* ❱  ⊰━━━❤︎
 ║┣❥ *${prefix}tribunews*
 ║┣❥ *${prefix}liputan6*
@@ -3876,6 +3920,8 @@ break
 ║┣❥ *${prefix}infofilm* 
 ║┣❥ *${prefix}infofilm2*                        
 ║┣❥ *${prefix}wiki*
+║┣━━⊱  ❰ *SOUND MENU* ❱  ⊰━━━❤︎
+║┣❥ *${prefix}soundplaydate* 
 ║┣━━⊱  ❰ *NSFW MENU* ❱  ⊰━━━❤︎
 ║┣❥ *${prefix}pokemon*
 ║┣❥ *${prefix}anjing*
@@ -3923,6 +3969,7 @@ break
 ║┣❥ *${prefix}ban*
 ║┣❥ *${prefix}join*
 ║┣❥ *${prefix}unban*
+║┣❥ *${prefix}giftlimit*
 ║┣❥ *${prefix}block*
 ║┣❥ *${prefix}unblock*
 ║┣❥ *${prefix}setmemberlimit*
@@ -3932,7 +3979,6 @@ break
 ║┣❥ *${prefix}listblock*
 ║┣❥ *${prefix}leave*
 ║┣❥ *${prefix}event* [1/0]
-║┣❥ *${prefix}kalkulator*
 ║┣❥ *${prefix}clone*
 ║┣❥ *${prefix}setbotpp*
 ║┣━━⊱ ❰ *TQTO* ❱ ⊰━━❤︎
@@ -3972,7 +4018,80 @@ break
                     }
                 reply(teks.trim())
                 await limitAdd(sender)
-                break	
+                break
+                case 'ccgenerator': 
+                    if (!isRegistered) return reply( ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                   reply(`_[❕] Loading_`)
+                   anu = await fetchJson(`https://videfikri.com/api/ccgenerator/`, {method:'get'})
+                   teks = `*Hasil CCGenerator*\n*♻️NUMBER*: ${anu.result.card.number}\n*♻️TYPE*: ${anu.result.card.network}\n*♻️CVV*: ${anu.result.card.cvv}\n*♻️PIN*: ${anu.result.card.pin}\n*♻️MONEY*: ${anu.result.card.balance}\n*♻️EXPIRE-MONTH*: *Custom*\n*♻️EXPIRE-YEAR*: *Custume*\n*♻️COUTRY*: ${anu.result.customer.country}\n*♻️NAME*: ${anu.result.customer.name}\n*♻️ADDRESS*: ${anu.result.customer.address}`
+                   dappa.sendMessage(from, teks, text, {quoted: mek})
+                   await limitAdd(sender)
+                   break
+                 case 'ceritahorror': 
+                    if (!isRegistered) return reply( ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                   reply(`_[❕] Loading_`)
+                   anu = await fetchJson(`https://naufalhoster.xyz/tools/story_horror?apikey=IgygEb-7vT4iB-h2zOyi`, {method:'get'})
+                   teks = `*Hasil Cerita*\n*Nama Cerita*: ${anu.result.title}\n*Cerita*: ${anu.result.story}`
+                   dappa.sendMessage(from, teks, text, {quoted: mek})
+                   await limitAdd(sender)
+                   break
+                   case 'hamster':
+                    // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                if (isBanned) return reply('Maaf kamu sudah terbenned!')
+                    dappa.updatePresence(from, Presence.composing) 
+                    data = await fetchJson(`https://api.fdci.se/rep.php?gambar=aesthetic-hamsters`, {method: 'get'})
+                    reply(ind.wait())
+                    n = JSON.parse(JSON.stringify(data));
+                    nimek =  n[Math.floor(Math.random() * n.length)];
+                    pok = await getBuffer(nimek)
+                    dappa.sendMessage(from, pok, image, { quoted: mek })
+                    await limitAdd(sender)
+                    break
+        case 'kelinci':
+                    // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                if (isBanned) return reply('Maaf kamu sudah terbenned!')
+                    dappa.updatePresence(from, Presence.composing) 
+                    data = await fetchJson(`https://api.fdci.se/rep.php?gambar=aesthetic-rabbit`, {method: 'get'})
+                    reply(ind.wait())
+                    n = JSON.parse(JSON.stringify(data));
+                    nimek =  n[Math.floor(Math.random() * n.length)];
+                    pok = await getBuffer(nimek)
+                    dappa.sendMessage(from, pok, image, { quoted: mek })
+                    await limitAdd(sender)
+                    break
+                    case 'slot':
+          const somtoy = sotoy[Math.floor(Math.random() * (sotoy.length))]  
+             dappa.sendText(from, `[  🎰 | SLOTS ]\n-----------------\n🍋 : 🍌 : 🍍\n${somtoy}<=====\n🍋 : 🍌 : 🍍\n[  🎰 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3Buah anda Menang\n\nContoh : 🍌 : 🍌 : 🍌<=====`, id)
+           break
+            const sotoy = [
+        '🍊 : 🍒 : 🍐',
+        '🍒 : 🔔 : 🍊',
+        '🍇 : 🍒 : 🍐',
+        '🍊 : 🍋 : 🔔',//by Fadhlur Owner of NotBot
+        '🔔 : 🍒 : 🍐',
+        '🔔 : 🍒 : 🍊',
+                '🍊 : 🍋 : 🔔',        
+        '🍐 : 🍒 : 🍋',
+        '🍐 : 🍐 : 🍐',
+        '🍊 : 🍒 : 🍒',
+        '🔔 : 🔔 : 🍇',
+        '🍌 : 🍒 : 🔔',
+        '🍐 : 🔔 : 🔔',
+        '🍊 : 🍋 : 🍒',
+        '🍋 : 🍋 : 🍌',
+        '🔔 : 🔔 : 🍇',
+        '🔔 : 🍐 : 🍇',
+        '🔔 : 🔔 : 🔔',
+        '🍒 : 🍒 : 🍒',
+        '🍌 : 🍌 : 🍌'
+        ]
+        break	
                 case 'jadwalbola':          
                  if (!isRegistered) return reply( ind.noregis())
                 if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -5016,6 +5135,31 @@ break
 					await limitAdd(sender)
 					break
 				default:
+                  if (budy.includes(`@6285340827717`)) {
+
+                  reply(`Iyah Apa Ada Tag Touka-Bot? 🗣`)
+
+                  }
+                 
+       if (budy.includes(`@6282291992581`)) {
+
+                  reply(`Jangan Tag Zan Kak, Dia Lagi Sibuk 🗣`)
+
+                  }
+
+
+       if (budy.includes(`Zan`)) {
+
+                  reply(`Jangan Panggil Zan Kak, Dia Lagi Sibuk 🗣`)
+
+                  }
+
+       if (budy.includes(`Zan`)) {
+
+                  reply(`Jangan Panggil Zan Kak, Dia Lagi Sibuk 🗣`)
+
+                  }
+
 			if (budy.includes(`assalamualaikum`)) {
                   reply(`Waalaikumsalam`)
                   }
@@ -5055,7 +5199,7 @@ break
                 dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
 			if (body.startsWith(`${prefix}${command}`)) {
-
+  
                   reply(`*${pushname}*, Command *${prefix}${command}* Tidak Ada Di Dalam *${prefix}menu ToukaBotV2~*`)
 		const none = fs.readFileSync('./dapganz/none');
 		dappa.sendMessage(from, none, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})

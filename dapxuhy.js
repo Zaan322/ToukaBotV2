@@ -1,5 +1,5 @@
 /*Bodoamat
-Credit -DappaGay
+Credit -ZanGans
 Jangan Hapus Credit Babi
 
 TQTQ

@@ -1067,6 +1067,35 @@ if (isLimit(sender)) return reply(ind.limitend(pusname))
                 }
                 await limitAdd(sender)
                 break
+                case 'getsticker':
+                case 'gets':  // Fix Bug By XYTODBot & Yogi*
+                
+                    namastc = body.slice(12)
+                    result = fs.readFileSync(`./strg/sticker/${namastc}.webp`)
+                    dappa.sendMessage(from, result, sticker, {quoted :mek})
+                    break
+                case 'stickerlist':
+                case 'liststicker':  // Fix Bug By XYTODBot & Yogi*
+                
+                    teks = '*Sticker List :*\n\n'
+                    for (let awokwkwk of setiker) {
+                        teks += `- ${awokwkwk}\n`
+                    }
+                    teks += `\n*Total : ${setiker.length}*`
+                    dappa.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": setiker } })
+                    break
+                case 'addsticker':  // Fix Bug By XYTODBot & Yogi*
+                
+                    if (!isQuotedSticker) return reply('Reply stiker nya')
+                    svst = body.slice(12)
+                    if (!svst) return reply('Nama sticker nya apa?')
+                    boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+                    delb = await client.downloadMediaMessage(boij)
+                    setiker.push(`${svst}`)
+                    fs.writeFileSync(`./strg/sticker/${svst}.webp`, delb)
+                    fs.writeFileSync(`./strg/stik.json`, JSON.stringify(setiker))
+                    dappa.sendMessage(from, `Sukses Menambahkan Sticker\nCek dengan cara ${prefix}liststicker`, MessageType.text, { quoted: mek })
+                    break
 			case 'galaxstyle':
                  if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -4002,6 +4031,9 @@ break
 ║┣❥ *${prefix}aesthetic*
 ║┣❥ *${prefix}brainly*
 ║┣❥ *${prefix}pinterest*
+║┣❥ *${prefix}getsticker*
+║┣❥ *${prefix}stickerlist*
+║┣❥ *${prefix}addsticker*
 ║┣❥ *${prefix}randomhusbu*
 ║┣❥ *${prefix}randomcyberspace*
 ║┣❥ *${prefix}randomgame*

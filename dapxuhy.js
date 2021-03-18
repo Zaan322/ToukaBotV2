@@ -68,7 +68,7 @@ const LolHuman = 'RamlanID'
 const vcard = 'BEGIN:VCARD\n'  // Jangan di ubah biar ga error
             + 'VERSION:3.0\n'  // Jangan di ubah biar ga error
             + 'FN:ZanGanz\n'  // Ganti jadi namamu
-            + 'ORG:Pengembang ToukaBotV2~;\n'  // Ganti jadi namamu/Botmu
+            + 'ORG:Pengembang ToukaBotV3~;\n'  // Ganti jadi namamu/Botmu
             + 'TEL;type=CELL;type=VOICE;waid=6282291992581:+6282291992581\n'  // Ganti jadi nomormu, tapi jangan ubah polanya
             + 'END:VCARD' // jangan di ubah
             
@@ -504,7 +504,7 @@ dappa.on('group-participants-update', async (anu) => {
 		        var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 		        reply(`Maaf kak ${sender.split("@")[0]} Grup ini anti link, siap siap kamu di kick`)
 		        setTimeout( () => {
-			        dappa.groupRemove(from, [kic]).catch((e)=>{reply(`*ToukaBotV2~ HARUS JADI ADMINâ—*`)})
+			        dappa.groupRemove(from, [kic]).catch((e)=>{reply(`*ToukaBotV3~ HARUS JADI ADMINâ—*`)})
 		        }, 3000)
 		        setTimeout( () => {
 			        dappa.updatePresence(from, Presence.composing)
@@ -2154,7 +2154,7 @@ if (isLimit(sender)) return reply(ind.limitend(pusname))
 				reply(`[❕] Loading`)
 				anu = await fetchJson(`https://toukabot-api.herokuapp.com/api/textmaker?text=${ll1}&text2=${ll2}&text3=${ll3}&theme=google-suggestion&apikey=ToukaBotApi`)
 				buffer = await getBuffer(anu.result.url)
-				dappa.sendMessage(from, buffer, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ToukaBotV2~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('ZanGanz/odc.jpeg')} } }, caption: 'Nih hasilnya kak...'})
+				dappa.sendMessage(from, buffer, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ToukaBotV3~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('ZanGanz/odc.jpeg')} } }, caption: 'Nih hasilnya kak...'})
 				break
 		case 'glitch':
                  if (!isRegistered) return reply(ind.noregis())
@@ -2551,7 +2551,7 @@ if (isLimit(sender)) return reply(ind.limitend(pusname))
 				ll3 = ct.split("|")[2];
 				buffer = await getBuffer(`http://api.lolhuman.xyz/api/ephoto3/valorantbanner?apikey=${LolHuman}&text1=${ll1}&text2=${ll2}&text3=${ll3}`)
 				reply(ind.wait())
-				dappa.sendMessage(from, buffer, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ToukaBotV2~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('ZanGanz/odc.jpeg')} } }, caption: 'Nih hasilnya kak...'})
+				dappa.sendMessage(from, buffer, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ToukaBotV3~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('ZanGanz/odc.jpeg')} } }, caption: 'Nih hasilnya kak...'})
 				break
 				case 'pemainbola':
 				// ❗case by ZanGanz
@@ -2564,7 +2564,7 @@ if (isLimit(sender)) return reply(ind.limitend(pusname))
                 dap2 = ct.split("|")[1];
 				buffer = await getBuffer(`http://api.lolhuman.xyz/api/ephoto2/juventusshirt?apikey=${LolHuman}&text1=${dap1}&text2=${dap2}`)
 				reply(ind.wait())
-				dappa.sendMessage(from, buffer, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ToukaBotV2~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('ZanGanz/odc.jpeg')} } }, caption: 'Nih hasilnya kak...'})
+				dappa.sendMessage(from, buffer, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ToukaBotV3~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('ZanGanz/odc.jpeg')} } }, caption: 'Nih hasilnya kak...'})
 				break
 				case 'codbanner':
 				// ❗case by ZanGanz
@@ -2577,7 +2577,7 @@ if (isLimit(sender)) return reply(ind.limitend(pusname))
                 dap2 = ct.split("|")[1];
 				buffer = await getBuffer(`http://api.lolhuman.xyz/api/ephoto2/codwarzone?apikey=${LolHuman}&text1=${dap1}&text2=${dap2}`)
 				reply(ind.wait())
-				dappa.sendMessage(from, buffer, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ToukaBotV2~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('ZanGanz/odc.jpeg')} } }, caption: 'Nih hasilnya kak...'})
+				dappa.sendMessage(from, buffer, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ToukaBotV3~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('ZanGanz/odc.jpeg')} } }, caption: 'Nih hasilnya kak...'})
 				break
 				case 'galaxybat':
 				// ❗case by ZanGanz
@@ -2588,7 +2588,7 @@ if (isLimit(sender)) return reply(ind.limitend(pusname))
 				ct = body.slice(10)
 				dapuhy = await getBuffer(`http://api.lolhuman.xyz/api/ephoto1/galaxybat?apikey=${LolHuman}&text=${ct}`)
 				reply(ind.wait())
-				dappa.sendMessage(from, dapuhy, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ToukaBotV2~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('ZanGanz/odc.jpeg')} } }, caption: 'Nih hasilnya kak...'})
+				dappa.sendMessage(from, dapuhy, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ToukaBotV3~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('ZanGanz/odc.jpeg')} } }, caption: 'Nih hasilnya kak...'})
 				break
 					case 'silktext':
 					if (!isRegistered) return reply(ind.noregis())
@@ -2621,7 +2621,7 @@ if (isLimit(sender)) return reply(ind.limitend(pusname))
 				reply(ind.wait())
 				anu = await fetchJson(`https://toukabot-api.herokuapp.com/api/textmaker/game?text=${ll1}&text2=${ll2}&theme=pubg&apikey=ToukaBotApi`)
 				buffer = await getBuffer(anu.result.url)
-				dappa.sendMessage(from, buffer, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ToukaBotV2~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('ZanGanz/odc.jpeg')} } }, caption: 'Nih hasilnya kak...'})
+				dappa.sendMessage(from, buffer, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "ToukaBotV3~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('ZanGanz/odc.jpeg')} } }, caption: 'Nih hasilnya kak...'})
 				break  
 					case 'cml':
 					case 'ml':
@@ -3229,7 +3229,7 @@ break
 					if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
 					dappa.updatePresence(from, Presence.composing) 
-					teks = `\`\`\`Ini adalah list group ToukaBotV2~ :\n\n\`\`\``
+					teks = `\`\`\`Ini adalah list group ToukaBotV3~ :\n\n\`\`\``
 					no = 0
 					for (let hehehe of groupId) {
 						no += 1
@@ -3611,7 +3611,7 @@ break
 ║┣❥ *XP* : ${getLevelingXp(sender)}/${reqXp}
 ║┣❥ *Level* : ${getLevelingLevel(sender)}
 ║┣❥ *User register* : ${_registered.length}
-╚════ ⸨ *ToukaBotV2~* ⸩  ═════
+╚════ ⸨ *ToukaBotV3~* ⸩  ═════
 
 *YT = https://www.youtube.com/c/ZanGamingGans*
 *IG = https://www.instagram/zanganzz_*
@@ -3628,7 +3628,7 @@ break
 ╠═════════════════❍
 ║┣❥ ingin sewa bot? *${prefix}sewabot*
 ╠═════════════════════
-║> *_Menu ToukaBotV2~_*
+║> *_Menu ToukaBotV3~_*
 ╠═════════════════════
 ║┏━━⊱ ❰ *MAKER MENU* ❱ ⊰━━❤︎
 ║┣❥ *${prefix}sticker* (jika video max. 9det)
@@ -3984,8 +3984,9 @@ break
 ║┣━━⊱ ❰ *TQTO* ❱ ⊰━━❤︎
 ║┣➣ *Allah SWT*
 ║┣➣ *DappaUhuy* 
+║┣➣ *Zan Gaming* 
 ║┣➣ *DHARG TEAM*
-║┗━━⊱  ⸨ *ToukaBotV2~* ⸩  ⊰━━━
+║┗━━⊱  ⸨ *ToukaBotV3~* ⸩  ⊰━━━
 ╚═════════════════════
 ` 
                     dappa.sendMessage(from, wew, image, { quoted: mek, caption: dappuhy })
@@ -5200,7 +5201,7 @@ break
                   }
 			if (body.startsWith(`${prefix}${command}`)) {
   
-                  reply(`*${pushname}*, Command *${prefix}${command}* Tidak Ada Di Dalam *${prefix}menu ToukaBotV2~*`)
+                  reply(`*${pushname}*, Command *${prefix}${command}* Tidak Ada Di Dalam *${prefix}menu ToukaBotV3~*`)
 		const none = fs.readFileSync('./dapganz/none');
 		dappa.sendMessage(from, none, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 
@@ -5209,7 +5210,7 @@ break
 						console.log(budy)
 						muehe = await simih(budy)
 					} else {
-						console.log(color('[ToukaBotV2~]','yellow'), ('Command Tidak Ditemukan!!','red'), color(sender.split('@')[0]))
+						console.log(color('[ToukaBotV3~]','yellow'), ('Command Tidak Ditemukan!!','red'), color(sender.split('@')[0]))
 					}
 					}
 		} catch (e) {
